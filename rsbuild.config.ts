@@ -1,10 +1,19 @@
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginEslint } from '@rsbuild/plugin-eslint';
 import { mfConfig } from './module-federation.config';
 
 export default defineConfig({
-  plugins: [pluginReact(), pluginModuleFederation(mfConfig)],
+  plugins: [
+    pluginReact(),
+    pluginEslint({
+      eslintPluginOptions: {
+        configType: 'flat',
+      },
+    }),
+    pluginModuleFederation(mfConfig),
+  ],
   output: {
     polyfill: 'usage',
   },

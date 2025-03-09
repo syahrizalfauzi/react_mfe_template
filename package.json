@@ -21,6 +21,7 @@
     "@eslint/js": "^9.21.0",
     "@module-federation/rsbuild-plugin": "^0.10.0",
     "@rsbuild/core": "^1.2.14",
+    "@rsbuild/plugin-eslint": "^1.1.1",
     "@rsbuild/plugin-react": "^1.1.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
