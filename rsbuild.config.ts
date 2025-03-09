@@ -5,6 +5,9 @@ import { mfConfig } from './module-federation.config';
 
 export default defineConfig({
   plugins: [pluginReact(), pluginModuleFederation(mfConfig)],
+  output: {
+    polyfill: 'usage',
+  },
   server: {
     port: Number(process.env.PORT ?? 3000),
     cors: {
