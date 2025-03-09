@@ -20,9 +20,10 @@
     "noUnusedParameters": true,
 
     /* path settings */
+    "baseUrl": ".",
     "paths" : {
       "@*" : ["src/*"],
-      "*": ["./@mf-types/*"]
+      "*": ["@mf-types/*"]
     },
 
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
