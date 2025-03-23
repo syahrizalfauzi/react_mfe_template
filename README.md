@@ -47,6 +47,30 @@ const remotes = {
 };
 ```
 
+## 📦 Build
+If you're using environment variables, make sure to set them in the `build.js` and `Dockerfile`:
+```js
+// Check if required environment variables are set
+const requiredEnvVars = ['FEDERATION_REMOTE_URL'];
+```
+
+```Dockerfile
+# Add your environment variables here
+# ENV FEDERATION_REMOTE_URL="http://localhost:2000"
+
+```
+Lastly, if you're building the host app, make sure to disable the publicPath settings in `rsbuild.config.ts` file
+```typescript
+  // Disable this for the host app
+  tools: {
+    rspack: {
+      output: {
+        publicPath: 'auto',
+      },
+    },
+  },
+```
+
 ## 📦 Docker Deployment
 ### Build and Run with Docker
 ```sh

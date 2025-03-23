@@ -1,15 +1,22 @@
 # Stage 1: Build the React app
-FROM node:20-alpine AS builder
+FROM node:23-alpine AS builder
 
 WORKDIR /app
 
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+# Add your environment variables here
+# ENV FEDERATION_REMOTE_URL="http://localhost:2000"
+
 # Install dependencies
-COPY package.json package-lock.json ./
-RUN npm ci
+RUN corepack enable
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install
 
 # Copy the source code and build
 COPY . .
-RUN npm run build
+RUN pnpm run build
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine

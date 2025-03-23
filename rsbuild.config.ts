@@ -14,6 +14,14 @@ export default defineConfig({
     }),
     pluginModuleFederation(mfConfig),
   ],
+  // Disable this for the host app
+  tools: {
+    rspack: {
+      output: {
+        publicPath: 'auto',
+      },
+    },
+  },
   output: {
     polyfill: 'usage',
   },
